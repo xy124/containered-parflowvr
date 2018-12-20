@@ -16,4 +16,5 @@ script:
   - cd parflow
   - git checkout melissa
   - cd ../..
+  - source /home/docker/.bashrc
   - ./run.sh test
