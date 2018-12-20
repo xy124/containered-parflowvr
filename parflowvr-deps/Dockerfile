@@ -22,6 +22,7 @@ RUN sudo apt-get install -y \
  bc \
  autoconf \
  openmpi-bin openmpi-doc libopenmpi-dev openmpi-common \
+ libcurl4-gnutls-dev \
  libhypre-dev \
  libsilo-bin libsilo-dev \
  libhdf5-openmpi-dev libhdf5-openmpi-100 hdf5-helpers \
