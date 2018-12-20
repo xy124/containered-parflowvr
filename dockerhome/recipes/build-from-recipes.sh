@@ -17,6 +17,21 @@ then
 	git checkout dev
 fi
 
+# install netcdf-c
+cd $HOME/deps
+project="netcdf-c"
+if [ ! -d "$project" ];
+then
+	git clone "https://github.com/Unidata/netcdf-c" --depth=1
+fi
+cd $project
+cd $HOME/deps/$project
+mkdir -p build
+cd build
+cp -f ../../../recipes/cmake/$project/CMakeCache.txt .
+cmake ..
+make install -j$N
+
 cd $HOME
 
 if [ ! -d "parflow" ];
@@ -36,17 +51,3 @@ do
 	make install -j$N
 done
 
-# install netcdf-c
-cd deps
-project="netcdf-c"
-if [ ! -d "$project" ];
-then
-	git clone "https://github.com/Unidata/netcdf-c" --depth=1
-fi
-cd $project
-cd $HOME/deps/$project
-mkdir -p build
-cd build
-cp -f ../../../recipes/cmake/$project/CMakeCache.txt .
-cmake ..
-make install -j$N

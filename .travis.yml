@@ -1,0 +1,19 @@
+language: minimal
+
+services:
+  - docker
+
+install:
+  - ./build.sh
+
+script:
+  - cd dockerhome
+  - git clone "https://$FLOWVR_USER:$FLOWVR_PASSWORD@gitlab.inria.fr/flowvr/flowvr-ex.git"
+  - cd flowvr-ex
+  - git checkout dev
+  - cd ..
+  - git clone "https://github.com/xy124/parflow.git"
+  - cd parflow
+  - git checkout melissa
+  - cd ../..
+  - ./run.sh test

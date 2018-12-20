@@ -1,6 +1,8 @@
 # containered-parflowvr
 *ParFlowVR in containers!*
 
+[![Travis build icon](https://travis-ci.com/xy124/containered-parflowvr.svg?branch=master)](https://travis-ci.com/xy124/containered-parflowvr)
+
 This project is used to install parflow with FlowVR extension (parFlowVR) comfortably
 into a docker environment
 
