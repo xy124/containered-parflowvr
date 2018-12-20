@@ -14,7 +14,7 @@ script:
   - cd ..
   - git clone "https://github.com/xy124/parflow.git"
   - cd parflow
-  - git checkout melissa
+  - git checkout parFlowVR
   - cd ../..
   - source /home/docker/.bashrc
   - ./run.sh test
