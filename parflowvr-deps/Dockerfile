@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 # Set the working directory to /app
 
 # Install any needed packages specified in requirements.txt
-#RUN apt-get install openmpi-bin openmpi-common openmpi-doc libopenmpi-dev libboost1.62-all-dev libqt4-dev libqt4-dev-bin qt4-default libhdf5-dev libhypre-2.11.1 lib
+#RUN apt-get install openmpi-bin openmpi-common openmpi-doc libopenmpi-dev  libqt4-dev libqt4-dev-bin qt4-default  libhypre-2.11.1 lib
 #RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
@@ -14,6 +14,8 @@ RUN apt-get -qq update
 RUN apt-get -y install sudo apt-utils
 
 RUN sudo apt-get install -y \
+ libboost1.62-all-dev \
+ libhdf5-dev \
  gfortran \
  psmisc \
  nano \
