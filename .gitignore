@@ -1,0 +1,10 @@
+old/
+dockerhome/parflow
+dockerhome/flowvr-ex
+dockerhome/deps/netcdf-c
+dockerhome/.bash_history
+dockerhome/.flowvr
+dockerhome/install
+dockerhome/.vim
+dockerhome/.viminfo
+
