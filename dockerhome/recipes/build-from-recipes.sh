@@ -38,7 +38,7 @@ if [ ! -d "parflow" ];
 then
 	git clone https://github.com/xy124/parflow.git
 	cd parflow
-	git checkout melissa
+	git checkout parFlowVR
 fi
 
 for project in flowvr-ex parflow;

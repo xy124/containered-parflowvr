@@ -3,6 +3,7 @@ if [ "$1" == "test" ];
 then
   echo running in test mode...
   docker run \
+    --rm \
     --name parflowvr-run-test \
     -v $PWD/dockerhome:/home/docker \
     parflowvr-run /bin/bash -c "/home/docker/recipes/build-from-recipes.sh && /home/docker/test.sh"

@@ -1,3 +1,4 @@
+echo Welcome!
 export TERM=xterm
 
 export PREFIX=$HOME/install
