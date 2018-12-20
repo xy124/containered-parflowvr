@@ -12,7 +12,7 @@ cd $HOME
 
 if [ ! -d "flowvr-ex" ];
 then
-	git clone git@gitlab.inria.fr:flowvr/flowvr-ex.git
+	git clone https://gitlab.inria.fr/flowvr/flowvr-ex.git
 	cd flowvr-ex
 	git checkout dev
 fi
@@ -36,7 +36,7 @@ cd $HOME
 
 if [ ! -d "parflow" ];
 then
-	git clone git@github.com:xy124/parflow
+	git clone https://github.com/xy124/parflow.git
 	cd parflow
 	git checkout melissa
 fi
