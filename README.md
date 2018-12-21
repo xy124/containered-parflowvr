@@ -22,7 +22,7 @@ now log out and in again and check that you are in the docker group (`id`)
 ```bash
 git clone https://github.com/xy124/containered-parflowvr.git
 cd containered-parflowvr
-./build.sh
+./build.sh fast
 ```
 
 3. run the built image to create the container (only needed to be done once after build)
@@ -76,7 +76,6 @@ Bonus: Start/Stop the container (on the host)
   - _optional:_ if you want to reconfigure with cmake: `ccmake ..`
     - remember to keep the **CMAKE_INSTALL_PREFIX=/home/docker/install** intact!
   - to compile and install: `make install -j$N`
-
 
 ## Troubleshooting
 - ./stop.sh, ./start.sh, ./run.sh

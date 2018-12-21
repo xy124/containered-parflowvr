@@ -4,7 +4,7 @@ services:
   - docker
 
 install:
-  - ./build_travis.sh
+  - bash .build_travis.sh
 
 script:
   - cd dockerhome
