@@ -17,3 +17,9 @@ script:
   - git checkout parFlowVR
   - cd ../..
   - ./run.sh test
+
+deploy:
+  provider: script
+  script: "./deploy_docker.sh"
+  on:
+    branch: master
