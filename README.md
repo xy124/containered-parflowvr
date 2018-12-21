@@ -97,7 +97,7 @@ To start it later again: use ./start.sh
 
 
 ## Container structure
-- An image (parflow-deps) is created on build containing ubuntu with all the necessary dependencies
+- An image (parflow-base) is created on build containing ubuntu with all the necessary dependencies
 installable through the package manager
 - On top of this an other Dockerfile creates the image parflowvr-run which then is instantiated in the run.sh script.
 - This allows to change settings and other stuff without reinstalling all the packages again.

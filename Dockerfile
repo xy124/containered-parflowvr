@@ -1,4 +1,4 @@
-FROM xy124/parflowvr-deps:latest
+FROM xy124/parflowvr-base:latest
 
 ARG userid=1000
 RUN export uid=$userid gid=$userid && \
