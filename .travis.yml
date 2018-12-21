@@ -16,5 +16,4 @@ script:
   - cd parflow
   - git checkout parFlowVR
   - cd ../..
-  - source /home/docker/.bashrc
   - ./run.sh test
