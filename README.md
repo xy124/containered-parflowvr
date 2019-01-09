@@ -48,6 +48,8 @@ docker@410aef2ef73e:~$
 cd /home/docker/recipes
 ./build-from-recipes.sh
 ```
+Before running the testcases you need to log out and in again so that the just
+installed envrionment scripts for flowvr will be loaded.
 
 6. Here you are! Play the testcases:
 ```bash
