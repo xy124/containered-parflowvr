@@ -15,6 +15,10 @@ export N=4
 
 
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib
+# to let flowvr find libcgraph to build flowvr-glgraph
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
+
 # The following environment variables are needed during runtime
 export PATH=$PREFIX/bin:$PATH
 export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
