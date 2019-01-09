@@ -15,10 +15,10 @@
 ########################
 
 //The path where e.g. numpy/arrayobject.h is found
-ADDITIONAL_NUMPY_INCLUDE_PATH:PATH=
+ADDITIONAL_NUMPY_INCLUDE_PATH:PATH=/home/docker/deps
 
 //Build Python Analyzer API to build analyzer modules in python
-BUILD_PYTHON_ANALYZER_API:BOOL=OFF
+BUILD_PYTHON_ANALYZER_API:BOOL=ON
 
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
@@ -562,6 +562,8 @@ pftools_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libtcl.so;
 # INTERNAL cache entries
 ########################
 
+//MODIFIED property for variable: ADDITIONAL_NUMPY_INCLUDE_PATH
+ADDITIONAL_NUMPY_INCLUDE_PATH-MODIFIED:INTERNAL=ON
 //MODIFIED property for variable: BUILD_PYTHON_ANALYZER_API
 BUILD_PYTHON_ANALYZER_API-MODIFIED:INTERNAL=ON
 //ADVANCED property for variable: BZRCOMMAND
