@@ -1,16 +1,24 @@
 #!/bin/bash
+set -e
+
 export N=3
 git clone https://github.com/Unidata/netcdf-c.git --depth 1
 cd netcdf-c
+autoreconf -i
 mkdir build
 cd build
-CPPFLAGS=-I/usr/lib/x86_64-linux-gnu/hdf5/openmpi/include \\
-LDFLAGS=-L/usr/lib/x86_64-linux-gnu/hdf5/openmpi/lib \\
-CC=mpicc ../configure --enable-netcdf-4 --prefix=$PARFLOW_DIR \\
+CPPFLAGS=-I/usr/lib/x86_64-linux-gnu/hdf5/openmpi/include \
+LDFLAGS=-L/usr/lib/x86_64-linux-gnu/hdf5/openmpi/lib \
+CC=mpicc ../configure --enable-netcdf-4 --prefix=$PARFLOW_DIR \
 --with-hdf5=/usr/lib/x86_64-linux-gnu/hdf5/openmpi && make -j$N
 make install
+
 cd
+
+
+rm -rf parflow
 git clone https://github.com/xy124/parflow.git
+cd parflow
 mkdir build
 cd build
 cmake .. \

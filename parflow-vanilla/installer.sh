@@ -6,7 +6,7 @@ cd parflow
 mkdir build
 cd build
 cmake .. \
-  -DCMAKE_INSTALL_PREFIX:PATH=/home/docker/install \
+  -DCMAKE_INSTALL_PREFIX:PATH=$PARFLOW_DIR \
   -DPARFLOW_AMPS_LAYER:STRING=mpi1 \
   -DPARFLOW_AMPS_SEQUENTIAL_IO:BOOL=ON \
   -DPARFLOW_ENABLE_HYPRE:BOOL=ON \

@@ -1,8 +1,8 @@
-#FROM xy124/parflowvr-base:latest
 FROM parflow-vanilla:latest
 
-#RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
-
+ADD ./installer.sh .
+RUN sudo chown docker:docker installer.sh
+RUN chmod +x installer.sh && ./installer.sh
 
 CMD ["bash"]
 
