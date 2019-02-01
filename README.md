@@ -16,6 +16,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 now log out and in again and check that you are in the docker group (`id`)
+Also check that your docker API version is at least 1.25 (`docker version`).
 
 2. clone this repository and run the build script. The build script will take some time
 (up to hours depending on your internet connection and hard drive speed)
