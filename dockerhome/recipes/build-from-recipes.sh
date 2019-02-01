@@ -18,6 +18,7 @@ then
 fi
 
 # install netcdf-c
+mkdir -p $HOME/deps
 cd $HOME/deps
 project="netcdf-c"
 if [ ! -d "$project" ];
@@ -26,11 +27,15 @@ then
 fi
 cd $project
 cd $HOME/deps/$project
+autoreconf -i
 mkdir -p build
 cd build
-cp -f ../../../recipes/cmake/$project/CMakeCache.txt .
-cmake ..
-make install -j$N
+CPPFLAGS=-I/usr/lib/x86_64-linux-gnu/hdf5/openmpi/include \
+LDFLAGS=-L/usr/lib/x86_64-linux-gnu/hdf5/openmpi/lib \
+CC=mpicc ../configure --enable-netcdf-4 \
+--with-hdf5=/usr/lib/x86_64-linux-gnu/hdf5/openmpi && make -j$N
+make -j$N
+sudo make install
 
 cd $HOME
 
@@ -40,6 +45,11 @@ then
 	cd parflow
 	git checkout parFlowVR
 fi
+
+cd $HOME
+wget -c http://portal.nersc.gov/project/visit/releases/2.13.3/visit2_13_3.linux-x86_64-ubuntu18.tar.gz
+tar -xvf visit2_13_3.linux-x86_64-ubuntu18.tar.gz
+cd
 
 for project in flowvr-ex parflow;
 do

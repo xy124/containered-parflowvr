@@ -14,11 +14,11 @@
 # EXTERNAL cache entries
 ########################
 
-//The path where e.g. numpy/arrayobject.h is found
-ADDITIONAL_NUMPY_INCLUDE_PATH:PATH=/home/docker/deps
+//Path to a file.
+"ADDITIONAL_NUMPY_INCLUDE_PATH:PATH":PATH=/usr/include/python2.7
 
 //Build Python Analyzer API to build analyzer modules in python
-BUILD_PYTHON_ANALYZER_API:BOOL=ON
+BUILD_PYTHON_ANALYZER_API:BOOL=True
 
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
@@ -242,9 +242,6 @@ CVS_UPDATE_OPTIONS:STRING=-d -A -P
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
-//Path to a library.
-FCA_LIBRARY:FILEPATH=/home/docker/install/lib/libfca.so
-
 //Path to FlowVR root
 FLOWVR_PREFIX:PATH=/home/docker/install
 
@@ -379,6 +376,12 @@ MPI_mpi_usempi_ignore_tkr_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/openmpi/lib
 //Location of the mpi_usempif08 library for MPI
 MPI_mpi_usempif08_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_usempif08.so
 
+//Path to a file.
+NETCDF_INCLUDE_DIR:PATH=/usr/local/include
+
+//Path to a library.
+NETCDF_LIBRARY:FILEPATH=/usr/local/lib/libnetcdf.so
+
 //Path to numpy.i
 NUMPY_I_PATH:PATH=/home/docker/deps
 
@@ -419,7 +422,7 @@ PARFLOW_ENABLE_NETCDF:BOOL=ON
 PARFLOW_ENABLE_PROFILING:BOOL=False
 
 //Build with Silo
-PARFLOW_ENABLE_SILO:BOOL=OFF
+PARFLOW_ENABLE_SILO:BOOL=False
 
 //Enable building of the Parflow simulator
 PARFLOW_ENABLE_SIMULATOR:BOOL=True
@@ -443,7 +446,7 @@ PARFLOW_ENABLE_TOOLS:BOOL=True
 PARFLOW_ENABLE_VALGRIND:BOOL=False
 
 //Enable building of the Visit Connector (visit libsim is needed!)
-PARFLOW_ENABLE_VISIT_CONNECTOR:BOOL=OFF
+PARFLOW_ENABLE_VISIT_CONNECTOR:BOOL=ON
 
 //Build with Zlib compression library
 PARFLOW_ENABLE_ZLIB:BOOL=False
@@ -476,14 +479,8 @@ PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
 // a Dart server
 SCPCOMMAND:FILEPATH=/usr/bin/scp
 
-//Path to a file.
-SILO_INCLUDE_DIR:PATH=/usr/include
-
-//Path to a library.
-SILO_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libsiloh5.so
-
 //Name of the computer/site where compile is being run
-SITE:STRING=6995ac6e33af
+SITE:STRING=4b4ee798a74c
 
 //Path to the SLURM sbatch executable
 SLURM_SBATCH_COMMAND:FILEPATH=SLURM_SBATCH_COMMAND-NOTFOUND
@@ -521,8 +518,14 @@ TK_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libtk.so
 //Path to a program.
 TK_WISH:FILEPATH=/usr/bin/wish
 
+//Path to visit include directory
+VISIT_INCLUDE_DIR:PATH=/home/docker/visit2_13_3.linux-x86_64/2.13.3/linux-x86_64/libsim/V2/include
+
+//Path to libsim (V2)
+VISIT_LIBRARY_LIBSIM:FILEPATH=/home/docker/visit2_13_3.linux-x86_64/2.13.3/linux-x86_64/libsim/V2/lib/libsimV2.a
+
 //Dependencies for the target
-_pypfAnalyzer_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;pfanalyzer;general;/home/docker/install/lib/libfca.so;
+_pypfAnalyzer_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;pfanalyzer;
 
 //Dependencies for target
 amps_LIB_DEPENDS:STATIC=
@@ -538,9 +541,6 @@ flowvr.plugins.MergeGridMessages_LIB_DEPENDS:STATIC=general;/home/docker/install
 
 //Dependencies for the target
 flowvr.plugins.MergeItExt_LIB_DEPENDS:STATIC=general;/home/docker/install/lib/libflowvr-base.so;general;/home/docker/install/lib/libflowvr-plugd.so;
-
-//The directory containing a CMake configuration file for netCDF.
-netCDF_DIR:PATH=/home/docker/install/lib/cmake/netCDF
 
 //Dependencies for target
 pfanalyzer_LIB_DEPENDS:STATIC=
@@ -562,10 +562,6 @@ pftools_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libtcl.so;
 # INTERNAL cache entries
 ########################
 
-//MODIFIED property for variable: ADDITIONAL_NUMPY_INCLUDE_PATH
-ADDITIONAL_NUMPY_INCLUDE_PATH-MODIFIED:INTERNAL=ON
-//MODIFIED property for variable: BUILD_PYTHON_ANALYZER_API
-BUILD_PYTHON_ANALYZER_API-MODIFIED:INTERNAL=ON
 //ADVANCED property for variable: BZRCOMMAND
 BZRCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -684,7 +680,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=17
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -755,12 +751,12 @@ FIND_PACKAGE_MESSAGE_DETAILS_MPI_CXX:INTERNAL=[/usr/lib/x86_64-linux-gnu/openmpi
 FIND_PACKAGE_MESSAGE_DETAILS_MPI_Fortran:INTERNAL=[/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_usempif08.so][/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_usempi_ignore_tkr.so][/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_mpifh.so][/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so][mpi_usempif08;mpi_usempi_ignore_tkr;mpi_mpifh;mpi][TRUE][v3.1()]
 //Details about finding NUMPY
 FIND_PACKAGE_MESSAGE_DETAILS_NUMPY:INTERNAL=/usr/lib/python2.7/dist-packages/numpy/core/include1.13.3
+//Details about finding NetCDF
+FIND_PACKAGE_MESSAGE_DETAILS_NetCDF:INTERNAL=[/usr/local/lib/libnetcdf.so][/usr/local/include][YES][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2.7][v2.7.15()]
 //Details about finding PythonLibs
 FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpython2.7.so][/usr/include/python2.7][v2.7.15rc1(2.7.0)]
-//Details about finding SILO
-FIND_PACKAGE_MESSAGE_DETAILS_SILO:INTERNAL=[/usr/lib/x86_64-linux-gnu/libsiloh5.so][/usr/include][v()]
 //Details about finding SWIG
 FIND_PACKAGE_MESSAGE_DETAILS_SWIG:INTERNAL=[/usr/bin/swig3.0][/usr/share/swig3.0][v3.0.12()]
 //Details about finding TCL
@@ -883,6 +879,10 @@ MPI_mpi_mpifh_LIBRARY-ADVANCED:INTERNAL=1
 MPI_mpi_usempi_ignore_tkr_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPI_mpi_usempif08_LIBRARY
 MPI_mpi_usempif08_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: NETCDF_INCLUDE_DIR
+NETCDF_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: NETCDF_LIBRARY
+NETCDF_LIBRARY-ADVANCED:INTERNAL=1
 //MODIFIED property for variable: NUMPY_I_PATH
 NUMPY_I_PATH-MODIFIED:INTERNAL=ON
 //ADVANCED property for variable: P4COMMAND
@@ -899,8 +899,8 @@ PARFLOW_ENABLE_FLOWVR-MODIFIED:INTERNAL=ON
 PARFLOW_ENABLE_HYPRE-MODIFIED:INTERNAL=ON
 //MODIFIED property for variable: PARFLOW_ENABLE_NETCDF
 PARFLOW_ENABLE_NETCDF-MODIFIED:INTERNAL=ON
-//MODIFIED property for variable: PARFLOW_ENABLE_SILO
-PARFLOW_ENABLE_SILO-MODIFIED:INTERNAL=ON
+//MODIFIED property for variable: PARFLOW_ENABLE_VISIT_CONNECTOR
+PARFLOW_ENABLE_VISIT_CONNECTOR-MODIFIED:INTERNAL=ON
 //Test PARFLOW_FORTRAN_IMPLICIT_NONE_0
 PARFLOW_FORTRAN_IMPLICIT_NONE_0:INTERNAL=
 //Test PARFLOW_FORTRAN_IMPLICIT_NONE_1
@@ -949,4 +949,8 @@ TK_INCLUDE_PATH-ADVANCED:INTERNAL=1
 TK_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: TK_WISH
 TK_WISH-ADVANCED:INTERNAL=1
+//MODIFIED property for variable: VISIT_INCLUDE_DIR
+VISIT_INCLUDE_DIR-MODIFIED:INTERNAL=ON
+//MODIFIED property for variable: VISIT_LIBRARY_LIBSIM
+VISIT_LIBRARY_LIBSIM-MODIFIED:INTERNAL=ON
 
