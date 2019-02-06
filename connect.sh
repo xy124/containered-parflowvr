@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#xhost +local:docker
+
 docker exec -i \
   -e DISPLAY=$DISPLAY \
   -e QT_X11_NO_MITSHM=1 \

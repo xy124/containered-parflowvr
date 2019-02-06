@@ -29,6 +29,8 @@ export PKG_CONFIG_PATH=$PREFIX/lib64/pkgconfig:$PKG_CONFIG_PATH
 export PARFLOW_DIR=$PREFIX
 
 export PYTHONPATH=$PYTHONPATH:$HOME/install/lib/python2.7rc1
+export PYTHONPATH=$PYTHONPATH:$HOME/visit2_13_3.linux-x86_64/2.13.3/linux-x86_64/lib/site-packages
+
 
 
 export OMPI_MCA_btl="^vader"

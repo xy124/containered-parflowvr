@@ -30,14 +30,14 @@ RUN sudo apt-get install -y \
  libhdf5-openmpi-dev libhdf5-openmpi-100 hdf5-helpers \
  libpnetcdf-dev \
  tcl-dev tk-dev \
- build-essential gcc g++ make cmake cmake-curses-gui python2.7 python2.7-dev openssh-server openssh-client \
+ build-essential gdb gcc g++ make cmake cmake-curses-gui python2.7 python2.7-dev openssh-server openssh-client \
  python2.7-numpy python-pip \
  hwloc libhwloc-dev
 
  #libnetcdf-dev - install from source!
  #needed to control mapping of flowvr sharedmemory segments, daemons and modules.
 
-RUN sudo pip install matplotlib pandas netCDF4
+RUN sudo pip install ipython matplotlib pandas netCDF4
 
 RUN sudo apt-get install -y swig
 
