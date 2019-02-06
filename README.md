@@ -103,3 +103,11 @@ To start it later again: use ./start.sh
 installable through the package manager
 - On top of this an other Dockerfile creates the image parflowvr-run which then is instantiated in the run.sh script.
 - This allows to change settings and other stuff without reinstalling all the packages again.
+
+
+## Further Parflow containers
+This repository also specifies containers to run parflow in a *vanilla* state
+(using the official parflow version without many additionally features)
+(see parflow-vanilla/README.md) plus there is also a *chocolate* version which consists
+of the official parflow version with netCDF activated.
+
