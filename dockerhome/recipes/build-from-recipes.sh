@@ -61,3 +61,11 @@ do
 	make install -j$N
 done
 
+# generate keypair to login without password
+if [ ! -d "$HOME/.ssh/id_rsa" ]
+then
+	ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
+	cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+fi
+
+

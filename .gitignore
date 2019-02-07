@@ -8,4 +8,11 @@ dockerhome/install
 dockerhome/.vim
 dockerhome/.viminfo
 dockerhome/visit2_13_3.linux-x86_64*
+dockerhome/.ssh/id_rsa*
+docekrhome/.ssh/authorized_keys
+*.swp
+dockerhome/.visit
+dockerhome/.cache
+dockerhome/.ipython
+dockerhome/.config
 

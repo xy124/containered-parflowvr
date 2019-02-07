@@ -8,7 +8,7 @@ RUN export uid=$userid gid=$userid && \
     echo "docker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer
 # id -u hostusername --> 30601
 #RUN useradd -u $userid docker
-#RUN echo "docker:docker" | chpasswd
+RUN echo "docker:docker" | chpasswd
 RUN adduser docker sudo
 USER docker
 

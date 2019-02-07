@@ -6,6 +6,10 @@
 This project is used to install parflow with FlowVR extension (parFlowVR) comfortably
 into a docker environment
 
+**WARNING:** the docker containers in this repository disable some major security
+features to simplify (remote) debugger access. Thus
+**DO NOT EXPOSE THEM DIRECTLY TO THE INTERNET** or to other untrusted networks.
+
 ## HowTo:
 **tested on ubuntu 16**
 
