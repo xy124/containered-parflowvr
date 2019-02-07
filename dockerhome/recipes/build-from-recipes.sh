@@ -33,9 +33,9 @@ cd build
 CPPFLAGS=-I/usr/lib/x86_64-linux-gnu/hdf5/openmpi/include \
 LDFLAGS=-L/usr/lib/x86_64-linux-gnu/hdf5/openmpi/lib \
 CC=mpicc ../configure --enable-netcdf-4 \
---with-hdf5=/usr/lib/x86_64-linux-gnu/hdf5/openmpi && make -j$N
+--with-hdf5=/usr/lib/x86_64-linux-gnu/hdf5/openmpi --prefix=$HOME/install
 make -j$N
-sudo make install
+make install
 
 cd $HOME
 

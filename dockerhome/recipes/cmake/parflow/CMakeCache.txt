@@ -377,10 +377,10 @@ MPI_mpi_usempi_ignore_tkr_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/openmpi/lib
 MPI_mpi_usempif08_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_usempif08.so
 
 //Path to a file.
-NETCDF_INCLUDE_DIR:PATH=/usr/local/include
+NETCDF_INCLUDE_DIR:PATH=/home/docker/install/include
 
 //Path to a library.
-NETCDF_LIBRARY:FILEPATH=/usr/local/lib/libnetcdf.so
+NETCDF_LIBRARY:FILEPATH=/home/docker/install/lib/libnetcdf.so
 
 //Path to numpy.i
 NUMPY_I_PATH:PATH=/home/docker/deps
@@ -752,7 +752,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_MPI_Fortran:INTERNAL=[/usr/lib/x86_64-linux-gnu/ope
 //Details about finding NUMPY
 FIND_PACKAGE_MESSAGE_DETAILS_NUMPY:INTERNAL=/usr/lib/python2.7/dist-packages/numpy/core/include1.13.3
 //Details about finding NetCDF
-FIND_PACKAGE_MESSAGE_DETAILS_NetCDF:INTERNAL=[/usr/local/lib/libnetcdf.so][/usr/local/include][YES][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_NetCDF:INTERNAL=[/home/docker/install/lib/libnetcdf.so][/home/docker/install/include][YES][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2.7][v2.7.15()]
 //Details about finding PythonLibs
