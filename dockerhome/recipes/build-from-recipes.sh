@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script will install flowvr and parflow
 set -e
+export N=6
 
 if [ "$HOME" != "/home/docker" ]
 then
@@ -47,8 +48,12 @@ then
 fi
 
 cd $HOME
+if [ ! -f "visit2_13_3.linux-x86_64-ubuntu18.tar.gz" ];
+then
 wget -c http://portal.nersc.gov/project/visit/releases/2.13.3/visit2_13_3.linux-x86_64-ubuntu18.tar.gz
 tar -xvf visit2_13_3.linux-x86_64-ubuntu18.tar.gz
+fi
+
 cd
 
 for project in flowvr-ex parflow;
@@ -62,7 +67,7 @@ do
 done
 
 # generate keypair to login without password
-if [ ! -d "$HOME/.ssh/id_rsa" ]
+if [ ! -f "$HOME/.ssh/id_rsa" ]
 then
 	ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
 	cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
