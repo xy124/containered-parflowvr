@@ -28,6 +28,9 @@ export PKG_CONFIG_PATH=$PREFIX/lib64/pkgconfig:$PKG_CONFIG_PATH
 
 export PARFLOW_DIR=$PREFIX
 
+# Actually this line is not necessary if one would enforce resourcing of bashrc after installing flowvr
+export PYTHONPATH=$PYTHONPATH:$HOME/install/lib/flowvr/python
+
 export PYTHONPATH=$PYTHONPATH:$HOME/install/lib/python2.7rc1
 export PYTHONPATH=$PYTHONPATH:$HOME/visit2_13_3.linux-x86_64/2.13.3/linux-x86_64/lib/site-packages
 
@@ -36,3 +39,9 @@ export DYLD_LIBRARY_PATH=$HOME/visit2_13_3.linux-x86_64/2.13.3/linux-x86_64/lib
 
 
 export OMPI_MCA_btl="^vader"
+
+
+# Activate nvidia graphics driver for visit use in the contianer
+# (see https://github.com/jessfraz/dockerfiles/issues/253)
+export PATH=/usr/lib/nvidia-340/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/lib/nvidia-340:/usr/lib32/nvidia-340:${LD_LIBRARY_PATH}

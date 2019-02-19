@@ -11,12 +11,15 @@ else
   echo running ...
   # use seccomp=unconfined to be able to use gdb in it for debugging.
   docker run \
-    -e DISPLAY=$DISPLAY \
+    -e DISPLAY=unix$DISPLAY \
+    --privileged \
     --name parflowvr-run \
     -d -i \
     -v $PWD/dockerhome:/home/docker \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --security-opt seccomp=unconfined \
+    -p 5600-6000:5600-6000 \
+    -v /usr/lib/nvidia-340:/usr/lib/nvidia-340 -v /usr/lib32/nvidia-340:/usr/lib32/nvidia-340 --device /dev/dri \
     parflowvr-run
 fi
 
