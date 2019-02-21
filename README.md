@@ -57,15 +57,55 @@ Before running the testcases you need to log out and in again so that the just
 installed envrionment scripts for flowvr will be loaded.
 
 6. Here you are! Play the testcases:
+#### In Situ writing to get better performances
 ```bash
 cd /home/docker/parflow/flowvr/testcases/netcdfwriter
 ./do.sh
 ```
-or
+#### In Situ steering of a running Simulation
+This shows how to interact _live_ and _online_ with a running parflow simulation
 ```
 cd /home/docker/parflow/flowvr/testcases/steering-Python
 ./do.sh
 ```
+#### In Situ visualization
+Further you can kick off VisIt which was installed to the container to perform In Situ
+visualization of running parflow simulations
+```bash
+visit &
+cd /home/docker/parflow/flowvr/testcases/visit
+./do.sh
+```
+- now bring the visit window to the foreground
+- click on `File -> Open`
+- navigate to `/home/docker/.visit/simulations`
+- doubleclick the `.sim2` file
+- click `Add -> Pseudocolor` and select the variable you desire to inspect
+- click `Draw` and here you go
+- click `File -> Simulations . . .`
+- click `trigger snap` and wait a moment... the plot will refresh.
+
+#### Visualize a parflowvr application's data flow graph
+Change to the applications directory for which you want to spectate the graph and open
+ `parflowvr.net.xml` with `flowvr-glgraph`, e.g.
+```bash
+cd /home/docker/parflow/flowvr/testcases/visit
+flowvr-glgraph parflowvr.net.xml
+```
+(If there is no such `parflowvr.net.xml` file just execute the app with `./do.sh`, this
+will generate it)
+
+**HINT:** if VisIt does not show up correctly this is probably related to your graphics
+drivers that are not exposed correctly to docker. You might want to change the `run.sh`
+script accordingly in this case
+(see http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+To re-run your parflowvr-run container
+```bash
+./stop.sh
+docker rm parflowvr-run
+./run.sh
+```
+
 
 Bonus: Start/Stop the container (on the host)
 ```bash
@@ -115,3 +155,9 @@ This repository also specifies containers to run parflow in a *vanilla* state
 (see parflow-vanilla/README.md) plus there is also a *chocolate* version which consists
 of the official parflow version with netCDF activated.
 
+## Further information on ParFlowVR
+The following resources are useful to understand FlowVR and how it was integrated with
+Parflow:
+- documentation on http://flowvr.sourceforge.net/
+- main.pdf on https://gitlab.cs.fau.de/friese/MasterSupplement
+- the source on https://github.com/xy124/parflow/tree/parFlowVR
