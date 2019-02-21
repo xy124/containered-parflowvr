@@ -1,11 +1,4 @@
-# Use an official Python runtime as a parent image
 FROM ubuntu:18.04
-
-# Set the working directory to /app
-
-# Install any needed packages specified in requirements.txt
-#RUN apt-get install openmpi-bin openmpi-common openmpi-doc libopenmpi-dev  libqt4-dev libqt4-dev-bin qt4-default  libhypre-2.11.1 lib
-#RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
@@ -66,7 +59,3 @@ RUN sudo apt-get install -y \
  qt4-default
 
 # low: install netcdf4 from source with cmake in global install dir!
-# TODO sudo problem:
-#$ sudo oma
-#sudo: no tty present and no askpass program specified
-# TODO: install visit
