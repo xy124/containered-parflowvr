@@ -5,10 +5,10 @@ set -e
 
 if [ "$1" == "fast" ];
 then
-  docker pull xy124/parflowvr-base:latest
+  podman pull xy124/parflowvr-base:latest
 else
-  docker build --pull -t xy124/parflowvr-base:latest parflowvr-base
+  podman build --pull -t xy124/parflowvr-base:latest parflowvr-base
 fi
 
-docker build -t parflowvr-run --build-arg userid=$(id -u $USER) .
+podman build -t parflowvr-run --build-arg userid=$(id -u $USER) .
 

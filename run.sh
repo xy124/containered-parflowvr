@@ -2,7 +2,7 @@
 if [ "$1" == "test" ];
 then
   echo running in test mode...
-  docker run \
+  podman run \
     --rm \
     --name parflowvr-run-test \
     -v $PWD/dockerhome:/home/docker \
@@ -10,7 +10,8 @@ then
 else
   echo running ...
   # use seccomp=unconfined to be able to use gdb in it for debugging.
-  docker run \
+  podman run \
+    --network=host \
     -e DISPLAY=unix$DISPLAY \
     --privileged \
     --name parflowvr-run \

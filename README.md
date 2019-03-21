@@ -161,3 +161,19 @@ Parflow:
 - documentation on http://flowvr.sourceforge.net/
 - main.pdf on https://gitlab.cs.fau.de/friese/MasterSupplement
 - the source on https://github.com/xy124/parflow/tree/parFlowVR
+
+
+## [UNDER CONSTRUCTION] podman:
+*tested on ubuntu 16*
+- install (lib)podman (see https://github.com/containers/libpod/issues/1553 and https://github.com/containers/libpod/issues/1908):
+```bash
+sudo add-apt-repository ppa:projectatomic/ppa
+sudo apt-get update
+sudo apt-get install podman
+echo -e "[registries.search]\nregistries = ['docker.io']" | sudo tee /etc/containers/registries.conf
+sudo apt-get install uidmap slirp4netns
+# sudo podman run --rm -it alpine sh
+```
+- Replace all docker commands in the scripts in this repository by podman
+  (it sounds unbelievable but really: just install the docker command by the podman command ! )
+- and run them ;)

@@ -20,7 +20,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
 
 # The following environment variables are needed during runtime
-export PATH=$PREFIX/bin:$HOME/visit2_13_3.linux-x86_64/bin:$PATH
+export PATH=$PREFIX/bin:$HOME/visit2_13_3.linux-x86_64/bin:$HOME/bin:$PATH
 export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$PREFIX/lib64:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
