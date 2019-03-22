@@ -175,5 +175,7 @@ sudo apt-get install uidmap slirp4netns
 # sudo podman run --rm -it alpine sh
 ```
 - Replace all docker commands in the scripts in this repository by podman
-  (it sounds unbelievable but really: just install the docker command by the podman command ! )
+  (it sounds unbelievable but really: just replace the docker command by the podman command ! ) -- This is already done for some scripts now
+- further you are root user in podman containers (this needed some adaptations in the Dockerfile too...)
 - and run them ;)
+- The root user in the parflowvr-run container has the password root

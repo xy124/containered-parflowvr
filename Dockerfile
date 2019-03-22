@@ -6,6 +6,7 @@ ENV PARFLOW_DIR /home/docker/install
 
 # reset home dir of root user to /home/docker
 RUN sed -i -e 's/\/root/\/home\/docker/g' /etc/passwd
+RUN echo "root:root" | chpasswd
 
 VOLUME /home/docker
 WORKDIR /home/docker
